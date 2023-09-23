@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class C_CadUsuario {
     @GetMapping("/cadastro")
     public String getCadastro(){
-    return "cadastros/usuario";
+    return "cadastro/usuario";
     }
 }
