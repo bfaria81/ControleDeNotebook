@@ -1,9 +1,7 @@
 package GestaoReservaNotebooks.Reservas.Service;
 
 import GestaoReservaNotebooks.Reservas.Model.M_Notebook;
-import GestaoReservaNotebooks.Reservas.Model.M_Resposta;
 import GestaoReservaNotebooks.Reservas.Repository.R_Notebook;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +21,12 @@ public class S_Notebook {
 
         if (S_Generico.campoVazio(numero)) {
             podeSalvar = false;
-            mensagem += "O Número do Notebook precisa ser informado !<br/>";
+            mensagem += "O Número do Notebook precisa ser informado !";
         }
 
         if (S_Generico.campoVazio(patrimonio)) {
             podeSalvar = false;
-            mensagem += "O Número do Patrimonio precisa ser informado !<br/>";
+            mensagem += "O Número do Patrimonio precisa ser informado !";
         }
 
         if (podeSalvar) {
@@ -39,9 +37,9 @@ public class S_Notebook {
 
             try {
                 r_notebook.save(m_notebook);
-                mensagem += "Notebook cadastrado com Sucesso !<br/>";
+                mensagem += "Notebook cadastrado com Sucesso !";
             } catch (DataIntegrityViolationException e) {
-                mensagem += "Erro ao cadastrar o Notebook: !<br/>";
+                mensagem += "Erro ao cadastrar o Notebook no banco de dados: !";
             }
         }
         return mensagem;

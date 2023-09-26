@@ -15,7 +15,7 @@ function enviaCadastroNotebook(){
             alert(data);
         },
         error: function(){
-            alert("Deu Ruim!");
+            alert("Falha na comunicação com o servidor!");
         }
     });
 }
