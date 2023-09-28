@@ -1,23 +1,19 @@
-$("#enviar").click(enviaCadastroNotebook);
+$("#enviar").click(cadastrarUsuario);
 
-function enviaCadastroNotebook(){
+function cadastrarUsuario(){
     let nome = $("#nome").val();
-    let ocupacao = $("#ocupacao").val();
+    let cargo = $("#cargo option:selected").val();
     let matricula = $("#matricula").val();
     let email = $("#email").val();
-    let senha = $("#senha").val();
-    let conf_Senha = $("#conf_Senha").val();
 
     $.ajax({
         type: "POST",
         url: "/cadastro/usuario",
         data:{
             nome : nome,
-            ocupacao : ocupacao,
+            cargo : cargo,
             matricula : matricula,
             email : email,
-            senha : senha,
-            conf_Senha : conf_Senha
 
         },
         success: function(data){

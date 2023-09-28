@@ -20,10 +20,8 @@ public class C_CadUsuario {
     public String postCadastroUsuario(@RequestParam("nome") String nome,
                                       @RequestParam("matricula") String matricula,
                                       @RequestParam("email") String email,
-                                      @RequestParam("ocupacao") String ocupacao,
-                                      @RequestParam("senha") String senha,
-                                      @RequestParam("conf_Senha")String conf_Senha){
-        return S_Usuario.cadastrarUsuario(nome,matricula,email,ocupacao,senha,conf_Senha);
+                                      @RequestParam("cargo") String cargo){
+        return S_Usuario.cadastrarUsuario(nome,matricula,email,cargo);
     }
 
 

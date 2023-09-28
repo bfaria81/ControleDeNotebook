@@ -13,26 +13,26 @@ public class S_GeradorDeSenha {
         final char[] CARACTERES_ESPECIAIS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".toCharArray();
         final char[] CARACTERES_NUMERICOS = "0123456789".toCharArray();
 
-        String enigma = "";
+        String senha = "";
 
         Random rand = new Random();
 
         //preenche caracteres textuais
         for (int i = 0; i < qtdLetras; i++) {
-            enigma += CARACTERES_TEXTO[rand.nextInt(0, CARACTERES_TEXTO.length)];
+            senha += CARACTERES_TEXTO[rand.nextInt(0, CARACTERES_TEXTO.length)];
         }
 
         //preenche caracteres numéricos
         for (int i = 0; i < qtdNumeros; i++) {
-            enigma += CARACTERES_NUMERICOS[rand.nextInt(0, CARACTERES_NUMERICOS.length)];
+            senha += CARACTERES_NUMERICOS[rand.nextInt(0, CARACTERES_NUMERICOS.length)];
         }
 
         //preenche caracteres especiais
         for (int i = 0; i < qtdEspeciais; i++) {
-            enigma += CARACTERES_ESPECIAIS[rand.nextInt(0, CARACTERES_ESPECIAIS.length)];
+            senha += CARACTERES_ESPECIAIS[rand.nextInt(0, CARACTERES_ESPECIAIS.length)];
         }
 
-        return enigma;
+        return senha;
     }
 }
 

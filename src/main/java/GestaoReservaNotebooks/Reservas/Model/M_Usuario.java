@@ -6,26 +6,19 @@ import jakarta.persistence.*;
 @Table(name = "usuario")
 public class M_Usuario {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String nome;
-        private Long matricula;
-        private String ocupacao;
-        private String email;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private Long matricula;
+    private Long cargo;
+    private String email;
+    private String senha;
+    private boolean ativo;
 
-        private String senha;
 
     public Long getId() {
         return id;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public void setId(Long id) {
@@ -48,12 +41,12 @@ public class M_Usuario {
         this.matricula = matricula;
     }
 
-    public String getOcupacao() {
-        return ocupacao;
+    public Long getCargo() {
+        return cargo;
     }
 
-    public void setOcupacao(String ocupacao) {
-        this.ocupacao = ocupacao;
+    public void setCargo(Long cargo) {
+        this.cargo = cargo;
     }
 
     public String getEmail() {
@@ -63,4 +56,22 @@ public class M_Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
 }
+
+
