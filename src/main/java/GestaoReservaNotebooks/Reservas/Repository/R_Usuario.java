@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 public interface R_Usuario extends JpaRepository<M_Usuario, Long>{
 
 
-    @Query(value = "SELECT * FROM pessoa WHERE id = :id", nativeQuery = true)
-    M_Usuario findById(@Param("id")String id);
+//    @Query(value = "SELECT * FROM pessoa WHERE id = :id", nativeQuery = true)
+//    M_Usuario findById(@Param("id")String id);
 
-    @Query(value = "SELECT * FROM pessoa WHERE matricula = :matricula and senha = :senha", nativeQuery = true)
+    @Query(value = "SELECT * FROM usuario WHERE matricula = :matricula and senha = :senha", nativeQuery = true)
     M_Usuario findByMatriculaESenha(@Param("matricula")Long matricula, @Param("senha")String senha);
 
 

@@ -1,7 +1,8 @@
 package GestaoReservaNotebooks.Reservas.Controller;
 
-import GestaoReservaNotebooks.Reservas.Service.S_Login;
+
 import GestaoReservaNotebooks.Reservas.Service.S_Notebook;
+import GestaoReservaNotebooks.Reservas.Service.S_Usuario;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,19 +27,19 @@ public class C_Notebook {
     }
 
 
-    @GetMapping("/")
-    public String landPage(){
-        return "/cadastro/login";
-    }
+//    @GetMapping("/")
+//    public String landPage(){
+//        return "/cadastro/login";
+//    }
 
     @PostMapping("/")
     public String loginPessoa(@RequestParam("usuario")String usuario,
                               @RequestParam("senha")String senha,
                               HttpSession session){
-        session.setAttribute("usuario", S_Login.validaLogin(usuario, senha));
+        session.setAttribute("usuario", S_Usuario.validaLogin(usuario, senha));
 
         if(session.getAttribute("usuario") != null){
-            return "/cadastro/home";
+            return "/home/home";
         } else {
             return "redirect:/";
         }

@@ -1,11 +1,27 @@
 //atribui a funcao para o botao castrar
-$("#btnCadastrar").click(function(event){
-	event.preventDefault();
+$("#login").click(function(enviarDadosLogin);
 
-	$.get("/cadastro", function(data){
-	    $(".container").html(data);
-	            history.pushState({}, '', "/cadastro/notebook");
-	    $("#btnEnviar").click(validaEnvio);
-	});
-});
+	function enviarDadosLogin(){
+	    let matricula = $("#matricula").val();
+	    let senha = $("#senha").val();
+
+	    $.ajax({
+	        type: "POST",
+	        url: "/login",
+	        data:{
+	            matricula: matricula,
+	            senha: senha
+	        },
+	        success: function(data){
+	            if(data){
+	                window.location.href="/home";
+	            }
+	        },
+    	    error: function(){
+    	        alert("Falha ao enviar dados")
+    	    }
+	    });
+	}
+
+
 
