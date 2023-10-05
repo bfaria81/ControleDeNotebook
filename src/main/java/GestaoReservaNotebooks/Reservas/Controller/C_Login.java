@@ -28,6 +28,12 @@ public class C_Login {
         return false;
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.setAttribute("usuario", null);
+        return "redirect:/";
+    }
+
 
 
 }
