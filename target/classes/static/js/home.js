@@ -1,5 +1,9 @@
 $('a').click(function(event){
     event.preventDefault();
+    if($this.hasClass('btn')){
+        $('a').removeClass('active disabled');
+        $(this).addClass('active disabled');
+    }
     controleDeRotas($(this).attr("href"));
 });
 
@@ -24,5 +28,16 @@ function gerarSwal(urlSucesso){
         if (result.isConfirmed) {
         window.location.href = urlSucesso;
         }
+    });
+}
+
+function alertaSucesso(mensagem){
+    Swal.fire({
+        position: 'top-end',
+        toast: true,
+        icon: 'success',
+        title: mensagem,
+        showConfirmButton: false,
+        timer: 2000
     });
 }
