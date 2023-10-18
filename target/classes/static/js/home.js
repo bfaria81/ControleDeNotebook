@@ -1,6 +1,6 @@
 $('a').click(function(event){
     event.preventDefault();
-    if($this.hasClass('btn')){
+    if(!$(this).hasClass('btn')){
         $('a').removeClass('active disabled');
         $(this).addClass('active disabled');
     }

@@ -1,6 +1,7 @@
 package GestaoReservaNotebooks.Reservas.Controller;
 
 import GestaoReservaNotebooks.Reservas.Model.M_Usuario;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,16 @@ public class C_Home {
         if(session.getAttribute("usuario") != null){
             model.addAttribute("usuario", session.getAttribute("usuario"));
             return "home/home";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @GetMapping("/Home")
+    public String getHomePartial(HttpServletRequest request){
+
+        if(request.getHeader("Referer") != null){
+            return "home/partial_home";
         } else {
             return "redirect:/";
         }

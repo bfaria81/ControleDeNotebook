@@ -32,13 +32,11 @@
 
 
     <!--Custom Style-->
-    <style type="text/css">
+    <style>
       h4{
         color: #fff;
         margin-right: 1em;
       }
-
-
     </style>
     <title>Reserva Notes</title>
 </head>
@@ -56,13 +54,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/Home">Home</a>
                 </li>
+
                 <li th:if="${usuario.cargo == 1}" class="nav-item">
                     <a id="cadNote" class="nav-link" href="/cadastro/notebook">Cadastro de notebook</a>
                 </li>
+
                 <li th:if="${usuario.cargo == 1}" class="nav-item">
                     <a id="cadUsuario" class="nav-link" href="/cadastro/usuario">Cadastro de usuário</a>
+                </li>
+                <li th:if="${usuario.cargo == 1}" class="nav-item">
+                    <a id="editUsuario" class="nav-link" href="/edit/usuario">Editar Perfil</a>
                 </li>
 
                 <!--                <li class="nav-item dropdown">-->

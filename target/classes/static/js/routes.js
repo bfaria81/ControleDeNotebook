@@ -21,6 +21,14 @@ function controleDeRotas(url){
                 $("#enviar").click(cadastrarUsuario);
             });
             break;
+        case "/edit/usuario":
+                //Renderizar Tela
+                $.get(url, function(data){
+                $('#mainContainer').html(data);
+
+             });
+             break;
+
         default:
             $.get(url,function(data){
                 $('#mainContainer').html(data);
