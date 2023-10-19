@@ -1,9 +1,10 @@
-<div class="row">
-    <div class="col-5">
+<h1 class="mt-4 mb-3">Perfil</h1>
+<div class="row mt-4">
+    <div class="col-5 mb-3">
         <div class="input-group has-validation">
             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
             <div class="form-floating">
-                <input type="text" class="form-control" id="nome" placeholder="Nome" required>
+                <input type="text" th:value="${usuario.nome}" class="form-control" id="nome" placeholder="Nome" required>
                 <label for="nome">Nome</label>
             </div>
             <div class="invalid-feedback">
@@ -12,11 +13,11 @@
         </div>
     </div>
 
-    <div class="col-7">
+    <div class="col-7 mb-3">
         <div class="input-group has-validation">
             <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
             <div class="form-floating">
-                <input type="text" class="form-control" id="email" placeholder="Email" required>
+                <input type="text" th:value="${usuario.email}" class="form-control" id="email" placeholder="Email" required>
                 <label for="email">Email</label>
             </div>
             <div class="invalid-feedback">
@@ -25,7 +26,7 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 mb-3">
         <div class="input-group has-validation">
             <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
             <div class="form-floating">
@@ -38,7 +39,7 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 mb-3">
         <div class="input-group has-validation">
             <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
             <div class="form-floating">
@@ -51,7 +52,7 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 mb-3">
         <div class="input-group has-validation">
             <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
             <div class="form-floating">
@@ -62,6 +63,9 @@
                 A nova senha e a confirmação de senha devem ser iguais!
             </div>
         </div>
-
     </div>
+
+</div>
+<div class="d-flex align-items-center justify-content-between">
+    <button id="salvar" class="btn btn-lg btn-primary">Salvar</button>
 </div>

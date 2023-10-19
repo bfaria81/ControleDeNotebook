@@ -28,7 +28,7 @@
     <script src="js/routes.js"></script>
     <script src="js/home.js" defer></script>
     <script th:if="${usuario.cargo == 1}" src="js/notebook.js"></script>
-    <script th:if="${usuario.cargo == 1}" src="js/usuario.js"></script>
+    <script src="js/usuario.js"></script>
 
 
     <!--Custom Style-->
@@ -64,7 +64,7 @@
                 <li th:if="${usuario.cargo == 1}" class="nav-item">
                     <a id="cadUsuario" class="nav-link" href="/cadastro/usuario">Cadastro de usuário</a>
                 </li>
-                <li th:if="${usuario.cargo == 1}" class="nav-item">
+                <li class="nav-item">
                     <a id="editUsuario" class="nav-link" href="/edit/usuario">Editar Perfil</a>
                 </li>
 
@@ -83,7 +83,7 @@
                 <!--                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
                 <!--                </li>-->
             </ul>
-            <h4 th:text="${'Bem vindo(a): '+ usuario.nome} + ' '"></h4>
+            <h4 id="boasVindas" th:text="${'Bem vindo(a): '+ usuario.nome} + ' '"></h4>
             <a id="sair" href="/logout" class="btn btn-sm btn-info">Logout</a>
         </div>
     </div>

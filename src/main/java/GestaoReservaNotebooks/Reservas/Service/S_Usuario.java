@@ -1,5 +1,6 @@
 package GestaoReservaNotebooks.Reservas.Service;
 
+import GestaoReservaNotebooks.Reservas.Model.M_Resposta;
 import GestaoReservaNotebooks.Reservas.Model.M_Usuario;
 import GestaoReservaNotebooks.Reservas.Repository.R_Usuario;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -71,4 +72,56 @@ public class S_Usuario {
         return mensagem;
     }
 
+    public static M_Resposta salvarEditUsuario(String nome, String matricula, String email,
+                                  String cargo, String senhaAtual, String novaSenha,
+                                  String confSenha, String ativo, M_Usuario usuario){
+
+        boolean podeSalvar = true;
+        String mansagem = "";
+        boolean isAdmin = usuario.getCargo() == 1;
+        // se for administrador não recebe a matricula, senão recebe a matricula
+        matricula = isAdmin ? S_Generico.limparNumero(matricula) : matricula;
+
+        if(senhaAtual.equals(usuario.getSenha())) {
+            if (S_Generico.campoVazio(nome)){
+                podeSalvar = false;
+                mansagem += "O nome precisa ser preenchido!";
+            }
+            if (S_Generico.campoVazio(matricula)) {
+                podeSalvar = false;
+                mansagem += "Matrícula inválida";
+            }
+            if (S_Generico.campoVazio(email)) {
+                podeSalvar = false;
+                mansagem += "O email precisa ser preenchido!";
+            }
+            if (!novaSenha.equals(confSenha)) {
+                podeSalvar = false;
+                mansagem += "A sua senha e confirmação de senha precisam ser iguais!";
+            }
+        } else {
+            podeSalvar = false;
+            mansagem += "Senha inválida!";
+        }
+        if (podeSalvar){
+            usuario.setNome(nome);
+            usuario.setEmail(email);
+            if (!S_Generico.campoVazio(novaSenha)){
+                usuario.setSenha(novaSenha);
+            }
+            if (isAdmin){
+                usuario.setCargo(Long.parseLong(cargo));
+                usuario.setMatricula(Long.parseLong(matricula));
+                usuario.setAtivo(Boolean.parseBoolean(ativo));
+            }
+            try{
+                r_usuario.save(usuario);
+                mansagem += "Atualização efetuada com sucesso!";
+            }catch (DataIntegrityViolationException e){
+                podeSalvar = false;
+                mansagem += "Falha ao salvar dados!";
+            }
+        }
+        return new M_Resposta(podeSalvar, mansagem);
+    }
 }

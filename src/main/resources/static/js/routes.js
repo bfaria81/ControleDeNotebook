@@ -25,10 +25,9 @@ function controleDeRotas(url){
                 //Renderizar Tela
                 $.get(url, function(data){
                 $('#mainContainer').html(data);
-
+                $("#salvar").click(salvarEditUsuario);
              });
              break;
-
         default:
             $.get(url,function(data){
                 $('#mainContainer').html(data);

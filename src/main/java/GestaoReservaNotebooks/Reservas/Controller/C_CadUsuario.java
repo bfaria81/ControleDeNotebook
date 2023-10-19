@@ -1,5 +1,6 @@
 package GestaoReservaNotebooks.Reservas.Controller;
 
+import GestaoReservaNotebooks.Reservas.Model.M_Resposta;
 import GestaoReservaNotebooks.Reservas.Model.M_Usuario;
 import GestaoReservaNotebooks.Reservas.Service.S_Notebook;
 import GestaoReservaNotebooks.Reservas.Service.S_Usuario;
@@ -48,6 +49,24 @@ public class C_CadUsuario {
         } else {
             return null;
         }
+    }
+
+    @PostMapping("/edit/usuario")
+    @ResponseBody
+    public M_Resposta postEditUsuario(HttpServletRequest request,
+                                      HttpSession session,
+                                      @RequestParam("nome") String nome,
+                                      @RequestParam("email") String email,
+                                      @RequestParam("senhaAtual") String senhaAtual,
+                                      @RequestParam("novaSenha") String novaSenha,
+                                      @RequestParam("confSenha") String confSenha,
+                                      @RequestParam(value="matricula",required = false) String matricula,
+                                      @RequestParam(value="cargo",required = false) String cargo,
+                                      @RequestParam(value="ativo",required = false) String ativo){
+
+        Object usuario = session.getAttribute("usuario");
+        return S_Usuario.salvarEditUsuario(nome,matricula,email,cargo,
+                senhaAtual,novaSenha,confSenha,ativo, (M_Usuario) usuario);
     }
 
 

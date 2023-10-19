@@ -1,20 +1,20 @@
 package GestaoReservaNotebooks.Reservas.Model;
 
 public class M_Resposta {
-    private boolean status;
+    private boolean sucesso;
     private String mensagem;
 
-    public M_Resposta(boolean status, String mensagem) {
-        this.status = status;
+    public M_Resposta(boolean sucesso, String mensagem) {
+        this.sucesso = sucesso;
         this.mensagem = mensagem;
     }
 
-    public boolean getStatus() {
-        return status;
+    public boolean isSucesso() {
+        return sucesso;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setSucesso(boolean sucesso) {
+        this.sucesso = sucesso;
     }
 
     public String getMensagem() {
@@ -25,4 +25,3 @@ public class M_Resposta {
         this.mensagem = mensagem;
     }
 }
-
