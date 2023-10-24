@@ -7,6 +7,10 @@ $('a').click(function(event){
     controleDeRotas($(this).attr("href"));
 });
 
+
+$('.navbar-brand').off('click');
+
+
 function gerarSwal(urlSucesso){
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -41,3 +45,16 @@ function alertaSucesso(mensagem){
         timer: 2000
     });
 }
+function addReserva(){
+    let dataReserva = $("#data").val()+'yyyy-MM-dd';
+    let quantidade = $("#qtd").val();
+
+    $("#listaReservas").prepend('<tr>'+
+                                    '<td>'+new Date(dataReserva).toLocaleDateString()+'</td>'+
+                                    '<td>'+quantidade+'</td>'+
+                                    '<td>'+new Date().toLocaleDateString()+'</td>'+
+                                '</tr>');
+}
+
+
+

@@ -50,7 +50,7 @@ function salvarEditUsuario(){
         },
         success: function(data){
             if(data.sucesso){
-                $("#boasVindas").text("Bem vindo " + nome + " !");
+                $("#boasVindas").text("Bem vindo: " + nome + " !");
                 alert("OK: " + data.mensagem);
 
             } else {

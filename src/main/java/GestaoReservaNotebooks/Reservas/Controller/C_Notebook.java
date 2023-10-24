@@ -45,4 +45,15 @@ public class C_Notebook {
         }
     }
 
+    @PostMapping("/home/partial_home")
+    @ResponseBody
+    public String postReservaNotebook(@RequestParam("nome") String nome,
+                                      @RequestParam("matricula") String matricula,
+                                      @RequestParam("email") String email,
+                                      @RequestParam("cargo") String cargo) {
+        return S_Usuario.cadastrarUsuario(nome, matricula, email, cargo);
+    }
+
+
+
 }
